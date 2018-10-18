@@ -1,0 +1,51 @@
+1) use my_first_db 
+db 
+
+2) db.createCollection('users')
+show collections
+
+3)db.users.insert({name: 'Keiko', home_state: 'California', lucky_number: 5, birthday:{month: 02, day: 14, year: 1986}})
+db.users.find({})
+
+4) db.users.insert({name:'Jean', home_state: 'Puerto Rico', lucky_number: 8, birthday:{month: 04, day:08, year: 1980}})
+
+db.users.insert({name: 'Julian', home_state: 'Columbia', lucky_number: 14, birthday: {month: 03, day: 02, year: 1986}})
+
+db.users.insert({name: 'Brian', home_state: 'Oregon', lucky_number: 420, birthday: {month: 01, day: 06, year: 1988}})
+
+db.users.insert({name: 'Nelson', home_state: 'California', lucky_number: 1188, birthday: {month: 04, day: 08, year: 1995}})
+
+5) db.users.find({})
+
+6) db.users.find({home_state: 'California'})
+
+7) db.users.find({lucky_number: {$gt: 3}})
+db.users.find({lucky_number: {$lte: 10}})
+db.users.find({lucky_number: {$gte: 1 $lte: 9}})
+
+8) db.users.updateMany({}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+db.users.find().pretty()
+
+9) db.users.update({name: 'Jean'}, {$push: {interests: 'video_games'}})
+db.users.update({name: 'Brian'}, {$push: {interests: 'read'}})
+db.users.update({name: 'Nelson'}, {$push: {interests: 'anime'}})
+
+10) db.users.update({name: 'Jean'}, {$push: {interests: 'taxes'}})
+
+11) db.users.update({name: 'Jean'}, {$pop: {interests: (1)}})
+
+12) db.users.remove({home_state: 'California'}, true)
+
+13) db.users.remove({name: 'Julian'})
+
+14) db.users.remove({lucky_number: {$gt: 5}, true})
+
+15) db.users.updateMany({}, {$set: {number_of_belts:0}} )
+
+16) db.users.updateMany({}, {$inc: {number_of_belts: 1}})
+
+17) db.users.updateMany({}, {$rename: {'number_of_belts':'belts_earned'}})
+
+18) db.users.updateMany({}, {$unset: {lucky_number: ""}})
+
+19) db.users.updateMany({}, {$currentDate: {updated_on: true}})
